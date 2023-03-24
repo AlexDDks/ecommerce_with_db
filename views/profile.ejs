@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/fa36d49c1a.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/styles/profile.css">
+        <link rel="stylesheet" href="/styles/modal.css">
+        <title><%=user.email%></title>
+        
+    </head>
+<body>  
+    <%- include('partials/header.ejs')%>
+
+    <section class="user">
+      <article class="userBox">
+              <div class="divImg">
+                   <img src="/img/users/<%=user.image%>" alt="">
+             </div>
+             <div class="userInfo">
+                   <p class="userEmail"><%= user.email %></p>
+             </div>
+
+             <div class="divButons">
+             <form action="/users/delete/<%=user.id %>?_method=DELETE" method="POST" class="formDelete">
+                <button type="submit" class="buttonDelete">Delete</button>
+            </form>
+    
+            <div class="divEdit"><a href="/users/edit/<%= user.id %>" class="buttonEdit"><button class="buttonEdit">Edit user</button></a></div>
+            </div>
+        </article>        
+    </section>
+
+        <%- include('partials/footer.ejs')%>
+
+        <%- include('partials/modal.ejs')%>
+    
+        <script src="/js/burger.js"></script>
+</body>
+</html>

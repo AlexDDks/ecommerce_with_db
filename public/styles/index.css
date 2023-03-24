@@ -1,0 +1,563 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI';
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-color: rgb(234, 234, 234);
+    max-width: 2200px;
+    min-width: 355px;
+}
+
+header{
+    width:100%;
+    background-color: rgb(18, 18, 18);
+    height: 60px;
+    position:fixed;
+    z-index: 10;
+    top: 0;
+}
+
+header .navHeader{
+    width: 100%;
+    height: 100%;
+}
+
+header nav ul img{
+    height: 25px;
+    opacity: .8;
+}
+
+header nav .ulNavHeader{
+    width: 75%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header nav ul li{
+    font-size: 12px;
+    list-style: none;
+}
+
+header nav ul .navBars, header nav .navBarRight{
+    display: none;
+}
+
+header nav ul a{
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 150ms;
+}
+
+header nav ul a:hover{
+    color: rgba(255, 255, 255,0.9);
+}
+
+Body .navHide{
+    display: none;
+}
+
+
+
+/* Vertical menu login */
+body header .ulNavHeader .verticalMenu{
+    display: none;
+    transition: all 250ms;
+    width: 80px;
+    background-color: rgba(18, 18, 18, 0.8);
+    position: absolute;
+    top:60px;
+    right: 11.4%;
+    border-radius: 0px 0px 5px 5px;
+}
+
+body header .ulNavHeader .verticalMenu li{
+    text-align: center;
+    padding: 5px 0;
+}
+
+body header .ulNavHeader .verticalMenu li:hover{
+    background-color: rgba(110, 110, 110, 0.8);
+}
+
+
+.divLogin{
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+body header .ulNavHeader .divLogin:hover .verticalMenu{
+    display: block;
+    align-items: center;
+}
+
+
+/* Section */
+Body .sectionTop{
+    width: 100%;
+    margin-top: 80px;
+}
+
+.sectionTop h1{
+    margin-top: 40px;
+    font-size: 45px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.sectionTop h3{
+    margin-top: 10px;
+    font-size: 27px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.sectionTop .divLearnBuy{
+    width: 25%;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.sectionTop .divLearnBuy a{
+    font-size: 22px;
+    color:  rgb(8, 105, 250);
+}
+
+.topImage{
+    margin-top: 30px;
+    width: 350px;
+    margin: auto;
+}
+
+body .sectionTop .topImage img{
+    width: 100%;
+    margin-top: 20px;
+    transition: all 150ms;
+}
+
+body .sectionTop .topImage img:hover{
+    transform: scale(1.05);
+}
+
+body .sectionBottomSlider{
+    margin-top: 45px;
+    width: 100%;
+}
+
+body .sectionBottomSlider .swiper{
+    width: 100%;
+    height: fit-content;
+}
+
+body .sectionBottomSlider .swiper img{
+    width: 100%;
+}
+
+body .sectionBottomSlider .swiper .swiper-button-next, body .sectionBottomSlider .swiper .swiper-button-prev{
+    color: white;
+    padding: 2%;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: .6;
+    transition: all 50ms;
+}
+
+body .sectionBottomSlider .swiper .swiper-button-next:hover, body .sectionBottomSlider .swiper .swiper-button-prev:hover{
+    opacity: 1;
+}
+
+.swiper .swiper-pagination-bullet-active{
+    background-color: white;
+}
+
+section .ulProducts{
+    width: 90%;
+    margin: auto;
+    margin-top: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+section .ulProducts li{
+    width: 30%;
+}
+
+section .ulProducts .productsItem1{
+    margin-top: 40px;
+}
+
+section .ulProducts li img{
+    width: 100%;
+    border-radius: 10px;
+    transition: all 150ms;
+}
+section .ulProducts li img:hover{
+    box-shadow: 0 0 8px 3px rgba(47, 47, 47, 0.6);
+}
+
+.h3FollowUs{
+    color:rgba(18, 18, 18, 0.9);
+    margin-top: 40px;
+    font-size: 27px;
+    font-weight: 600;
+    text-align: center;
+}
+
+body div .ulSocialMedia{
+   width: 300px;
+   margin: auto;
+   margin-top: 20px;
+   display: flex;
+   justify-content: space-evenly;
+   font-size: 30px;
+}
+
+/* Hovers social media icons */
+body div .ulSocialMedia .fa-facebook{
+    color:rgba(66, 103, 178, 0.8);
+}
+
+body div .ulSocialMedia .fa-twitter{
+    color:rgba(29, 161, 242, 0.8);
+}
+
+body div .ulSocialMedia .fa-linkedin{
+    color:rgba(0, 119, 181, 0.8);
+}
+
+body div .ulSocialMedia .fa-youtube{
+    color:rgba(255, 0, 0, 0.8);
+}
+
+body div .ulSocialMedia .fa-facebook:hover{
+    color:rgb(66, 103, 178);
+}
+
+body div .ulSocialMedia .fa-twitter:hover{
+    color:rgb(29, 161, 242);
+}
+
+body div .ulSocialMedia .fa-linkedin:hover{
+    color:rgb(0, 119, 181);
+}
+
+body div .ulSocialMedia .fa-youtube:hover{
+    color:rgb(255, 0, 0);
+}
+
+body .sectionAddress{
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;  
+    justify-content: space-between;
+}
+
+body section .divAddress, .divDirectLine{
+    width: 47.5%;
+    font-size: 18px;
+    color:rgba(18, 18, 18, 0.8);
+}
+
+body section .divAddress .fa-location-dot{
+    color: red;
+    font-size: 20px;
+}
+
+body section .pAddress, .pDirectLine{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+body section .divDirectLine .pNum{
+    color:  rgb(8, 105, 250);
+    font-weight:750;
+}
+
+body section .divDirectLine .fa-whatsapp{
+color: rgb(18 140 126);
+font-size: 22px;
+}
+
+body .loremInf{
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+    font-size: 14px;
+    color:rgba(18, 18, 18, 0.8);
+    text-align: justify;
+}
+
+body .loremInf .bottomText{
+    margin-top: 30px;
+}
+
+body .loremInf .bottomText .bottomLinks{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+.bottomLinks a{
+    color: rgb(8, 105, 250);
+}
+
+body .finalLogo img{
+    margin-left: 5%;
+    margin-top: 60px;
+    width: 300px;
+    opacity: 0.9;
+}
+
+/* footer */
+footer{
+    margin-top: 80px;
+    background-color: rgba(18, 18, 18, 0.9);
+}
+
+footer nav {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px 0 30px 0;
+}
+
+footer h3{
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 17px;
+    text-align: center;
+}
+
+footer .navFooter ul li{
+    font-size: 15px;
+    text-decoration: none;
+}
+
+footer .navFooter ul li a{
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 150ms;
+}
+
+footer .navFooter ul li a:hover{
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* media quereis */
+
+@media (max-width: 1023px) {
+
+    /* Header */
+    header nav .ulNavHeader{
+        display: none;
+    }
+    a{
+        color: rgba(255, 255, 255, 0.9);
+    }
+    body .navHide{
+        width: 100%;
+        background-color: rgb(18, 18, 18);
+        font-size: 15px;
+        margin-top: 60px;
+        margin-bottom: -70px;
+    }
+    body .navHide.active{
+        display: flex;
+    }
+    .navHide .ulNavHide{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 4px;
+    }
+    .navHide .ulNavHide li{
+        width: 100%;
+        padding: 2px;
+        margin: 0;
+        text-align: center;
+        transition: all 150ms;
+    }
+    .navHide .ulNavHide li:hover{
+        background-color: rgb(66, 66, 66);
+    }
+    body header nav .navBarRight{
+        display: flex;
+        width: 40%;
+        height: 60px;
+        margin: auto;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    header nav .logo img{
+        height: 18px;
+        opacity: 0.9;
+        margin-top: 3px;
+    }
+
+    /* Section */
+    .sectionTop h1{
+        font-size: 38px;
+    }
+    .sectionTop h3{
+        font-size: 26px;
+    }
+    .sectionTop .divLearnBuy a{
+        font-size: 22px;
+    }
+    .topImage{
+        width: 325px;
+    }
+    body div .ulSocialMedia{
+        width: 250px;
+        font-size: 28px;
+    } 
+    .sectionTop .divLearnBuy{
+        width: 45%;
+    }
+    .sectionBottomSlider .swiper{
+        margin-top: 30px;
+    }
+    .products .ulProducts{
+        margin-top: 60px;
+    }
+    .products .ulProducts li{
+        width: 30%;
+    }
+    section .ulProducts .productsItem1{
+        margin-top: 25px;
+    }
+    .divSocialMedia{
+        margin-top: -15px;
+    }
+    body .sectionAddress{
+        justify-content: space-between;  
+    }
+    body section .pAddress, .pDirectLine{
+        font-size: 22px;
+        font-weight: 600;
+    }
+    body section .divAddress, .divDirectLine{
+        width: 47.5%;
+        font-size: 18px;
+    }
+    body section .divAddress .fa-location-dot{
+        font-size: 20px;
+    }
+
+    .loremInf p{
+        font-size: 14px;
+    }
+    .bottomLinks p{
+        font-size: 16px;
+    }
+    
+    body .finalLogo img{
+        margin-left: 5%;
+        margin-top: 50px;
+        width: 250px;
+        opacity: 0.9;
+    }
+
+    /* Footer */
+    footer nav ul li{
+    font-size: 14px;
+    }
+    footer nav ul h3{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    /* Header */
+    body header nav .navBarRight{ /* icons */
+        width: 50%;
+    }
+
+    /* Section */
+    .sectionTop h1{
+        font-size: 35px;
+    }
+    .sectionTop h3{
+        font-size: 24px;
+    }
+    .sectionTop .divLearnBuy a{
+        font-size: 20px;
+    }
+    .topImage{
+        width: 280px;
+    }
+    body div .ulSocialMedia{
+        width: 200px;
+        font-size: 25px;
+    } 
+    .sectionTop .divLearnBuy{
+        width: 50%;
+    }
+    .sectionBottomSlider .swiper{
+        margin-top: -25px;
+    }
+    .products{
+        margin-top:15px;
+    }
+    .products .ulProducts{
+        margin-top: 0;
+    }
+    .products .ulProducts li{
+        width: 40%;
+        margin-top: 20px;
+    }
+    .divSocialMedia{
+        margin-top: -15px;
+    }
+    body .sectionAddress{
+        justify-content: space-between;  
+    }
+    body section .pAddress, .pDirectLine{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    body section .divAddress, .divDirectLine{
+        width: 47.5%;
+        font-size: 16px;
+    }
+    body section .divAddress .fa-location-dot{
+        font-size: 18px;
+    }
+
+    body .finalLogo img{
+        margin-left: 5%;
+        margin-top: 40px;
+        width: 200px;
+        opacity: 0.9;
+    }
+    .loremInf p{
+        font-size: 13px;
+    }
+
+    /* Footer */
+    footer nav ul li{
+    font-size: 13px;
+    }
+    footer nav ul h3{
+        font-size: 15px;
+    }
+}

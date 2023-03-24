@@ -1,0 +1,251 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI';
+}
+
+body{
+    background-color: rgb(234, 234, 234);
+    max-width: 2200px;
+    min-width: 355px;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-color: rgb(234, 234, 234);
+    max-width: 2200px;
+    min-width: 355px;
+}
+
+/* Header */
+header{
+    width:100%;
+    /* max-width: 1500px;  */
+    background-color: rgb(18, 18, 18);
+    height: 60px;
+    position:fixed;
+    z-index: 10;
+    top: 0;
+}
+
+header .navHeader{
+    width: 100%;
+    height: 100%;
+}
+
+header nav ul img{
+    height: 25px;
+    opacity: .8;
+}
+
+header nav .ulNavHeader{
+    width: 75%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header nav ul li{
+    font-size: 12px;
+    list-style: none;
+}
+
+header nav ul .navBars, header nav .navBarRight{
+    display: none;
+}
+
+header nav ul a{
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 150ms;
+}
+
+header nav ul a:hover{
+    color: rgba(255, 255, 255,0.9);
+}
+
+Body .navHide{
+    display: none;
+}
+
+
+/* Vertical menu login */
+body header .ulNavHeader .verticalMenu{
+    display: none;
+    transition: all 250ms;
+    width: 80px;
+    background-color: rgba(18, 18, 18, 0.8);
+    position: absolute;
+    top:60px;
+    right: 11.4%;
+    border-radius: 0px 0px 5px 5px;
+}
+
+body header .ulNavHeader .verticalMenu li{
+    text-align: center;
+    padding: 5px 0;
+}
+
+body header .ulNavHeader .verticalMenu li:hover{
+    background-color: rgba(110, 110, 110, 0.8);
+}
+
+
+.divLogin{
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+body header .ulNavHeader .divLogin:hover .verticalMenu{
+    display: block;
+    align-items: center;
+}
+
+
+body .divP{
+    width: 80%;
+    margin: auto;
+}
+
+body div .pTop{
+    margin-top: 120px;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    color:rgba(18, 18, 18, 0.8);
+}
+
+/* Section adress */
+body .sectionAddress{
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;  
+    justify-content: space-between;
+}
+
+body section .divAddress, .divDirectLine{
+    width: 47.5%;
+    font-size: 18px;
+    color:rgba(18, 18, 18, 0.8);
+}
+
+body section .divAddress .fa-location-dot{
+    color: red;
+    font-size: 20px;
+}
+
+body section .pAddress, .pDirectLine{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+body section .divDirectLine .pNum{
+    color:  rgb(8, 105, 250);
+    font-weight:750;
+}
+
+body section .divDirectLine .fa-whatsapp{
+    color: rgb(18 140 126);
+    font-size: 22px;
+}
+
+/* Social media */
+body div .ulSocialMedia{
+    width: 300px;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 30px;
+ }
+ 
+ /* Hovers social media icons */
+ 
+ body div .ulSocialMedia .fa-facebook{
+     color:rgba(66, 103, 178, 0.8);
+ }
+ 
+ body div .ulSocialMedia .fa-twitter{
+     color:rgba(29, 161, 242, 0.8);
+ }
+ 
+ body div .ulSocialMedia .fa-linkedin{
+     color:rgba(0, 119, 181, 0.8);
+ }
+ 
+ body div .ulSocialMedia .fa-youtube{
+     color:rgba(255, 0, 0, 0.8);
+ }
+ 
+ body div .ulSocialMedia .fa-facebook:hover{
+     color:rgb(66, 103, 178);
+ }
+ 
+ body div .ulSocialMedia .fa-twitter:hover{
+     color:rgb(29, 161, 242);
+ }
+ 
+ body div .ulSocialMedia .fa-linkedin:hover{
+     color:rgb(0, 119, 181);
+ }
+ 
+ body div .ulSocialMedia .fa-youtube:hover{
+     color:rgb(255, 0, 0);
+ }
+ 
+/* Footer */
+footer{
+    margin-top: 80px;
+    background-color: rgba(18, 18, 18, 0.9);
+}
+
+body .finalLogo{
+    width:20%;
+    margin-left: 5%;
+    margin-top: 60px;
+}
+
+body .finalLogo img{
+    width: 300px;
+    opacity: 0.9;
+}
+
+footer nav {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px 0 30px 0;
+}
+
+footer h3{
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 17px;
+    text-align: center;
+}
+
+footer .navFooter ul li{
+    font-size: 15px;
+    text-decoration: none;
+}
+
+footer .navFooter ul li a{
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 150ms;
+}
+
+footer .navFooter ul li a:hover{
+    color: rgba(255, 255, 255, 0.9);
+}

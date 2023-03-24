@@ -1,0 +1,389 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI';
+    color:rgba(18, 18, 18, 0.9);
+
+}
+
+body{
+    background-color: rgb(234, 234, 234);
+    max-width: 2200px;
+    min-width: 355px;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-color: rgb(234, 234, 234);
+    max-width: 2200px;
+    min-width: 355px;
+}
+
+/* Header */
+header{
+    width:100%;
+    /* max-width: 1500px;  */
+    background-color: rgb(18, 18, 18);
+    height: 60px;
+    position:fixed;
+    z-index: 10;
+    top: 0;
+}
+
+header .navHeader{
+    width: 100%;
+    height: 100%;
+}
+
+header nav ul img{
+    height: 25px;
+    opacity: .8;
+}
+
+header nav .ulNavHeader{
+    width: 75%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header nav ul li{
+    font-size: 12px;
+    list-style: none;
+}
+
+header nav ul .navBars, header nav .navBarRight{
+    display: none;
+}
+
+header nav ul a{
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 150ms;
+}
+
+header nav ul a:hover{
+    color: rgba(255, 255, 255,0.9);
+}
+
+Body .navHide{
+    display: none;
+}
+
+
+/* Vertical menu login */
+body header .ulNavHeader .verticalMenu{
+    display: none;
+    transition: all 250ms;
+    width: 80px;
+    background-color: rgba(18, 18, 18, 0.8);
+    position: absolute;
+    top:60px;
+    right: 11.4%;
+    border-radius: 0px 0px 5px 5px;
+}
+
+body header .ulNavHeader .verticalMenu li{
+    text-align: center;
+    padding: 5px 0;
+}
+
+body header .ulNavHeader .verticalMenu li:hover{
+    background-color: rgba(110, 110, 110, 0.8);
+}
+
+
+.divLogin{
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+body header .ulNavHeader .divLogin:hover .verticalMenu{
+    display: block;
+    align-items: center;
+}
+
+
+/* Form */
+.divTop{
+    width: 90%;
+    margin: 70px auto 15px auto;
+    font-size: 24px;
+}
+
+.divTop p{
+    color:rgba(18, 18, 18, 0.8);
+}
+
+.allForm{
+    width: 90%;
+    margin:0 auto 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.input{
+    height: 45px;
+    border-radius: 5px;
+    text-indent: 5px;
+    font-size: 18px;
+    border: 1px solid rgba(18, 18, 18,0.9);
+}
+
+label{
+    margin-bottom: 15px;
+    color:rgba(18, 18, 18, 0.8);
+}
+
+body section form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 30px 0 0 0;
+}
+
+form div .errorMsg p{
+    color:rgba(255, 0, 0, 0.8);
+    font-size: 17px;
+}
+
+body section form .divInputImg{
+    width: 65%;
+}
+
+body section form .divInput, .textArea{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+body section form .textArea{
+    width: 93.33%;
+}
+
+body section form textarea{
+    height: 80px;
+    width: 100%;
+    font-size: 18px;
+    border: 1px solid rgba(18, 18, 18,0.9);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+body section form .divButton{
+    margin-bottom: 30px;
+}
+
+button{
+    color: white;
+    font-size: 20px;
+    width: 180px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: rgb(18, 18, 18);
+    cursor: pointer;
+}
+
+.fa-circle-exclamation{
+    color: rgb(236, 22, 22);
+    margin-left: 3px;
+}
+
+/* Footer */
+footer{
+    margin-top: 80px;
+    background-color: rgba(18, 18, 18, 0.9);
+}
+
+body .finalLogo{
+    width:20%;
+    margin-left: 5%;
+    margin-top: 60px;
+}
+
+body .finalLogo img{
+    width: 300px;
+    opacity: 0.9;
+}
+
+footer nav {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px 0 30px 0;
+}
+
+footer h3{
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 17px;
+    text-align: center;
+}
+
+footer .navFooter ul li{
+    font-size: 15px;
+    text-decoration: none;
+}
+
+footer .navFooter ul li a{
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 150ms;
+}
+
+footer .navFooter ul li a:hover{
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 1023px) {
+    /* Header */
+    header nav .ulNavHeader{
+        display: none;
+    }
+    a{
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    i {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: all 150ms;
+    }
+    
+    i:hover{
+        color: rgba(255, 255, 255,0.9);
+    }
+    
+    body .navHide{
+        width: 100%;
+        background-color: rgb(18, 18, 18);
+        font-size: 15px;
+        margin-top: 60px;
+        margin-bottom: -70px;
+    }
+    body .navHide.active{
+        display: flex;
+    }
+    .navHide .ulNavHide{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 4px;
+    }
+    .navHide .ulNavHide li{
+        width: 100%;
+        padding: 2px;
+        margin: 0;
+        text-align: center;
+        transition: all 150ms;
+    }
+    .navHide .ulNavHide li:hover{
+        background-color: rgb(66, 66, 66);
+    }
+    body header nav .navBarRight{
+        display: flex;
+        width: 40%;
+        height: 60px;
+        margin: auto;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    header nav .logo img{
+        height: 18px;
+        opacity: 0.9;
+        margin-top: 3px;
+    }
+
+    button{
+        margin: 0 5px;
+        font-size: 20px;
+        width: 180px;
+        height: 60px;
+    }
+
+    /* Footer */
+    footer nav ul li{
+        font-size: 14px;
+    }
+    footer nav ul h3{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    
+    /* Header */
+    body header nav .navBarRight{ /* icons */
+        width: 50%;
+    }
+    .divTop{
+        margin-top: 90px;
+    }
+
+    /* Section Form */
+    .allForm form{
+        width: 100%;
+        margin: auto;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .allForm form div{
+        width: 100%;
+        margin: auto;
+    }
+
+    form input{
+        width: 100%;
+    }
+
+    body section form .divInput{
+        width: 90%;
+    }
+
+    body section form .textArea{
+        margin: auto;
+        margin-bottom: 15px;
+    }
+
+    body section form .textArea label{
+        margin-left: 2%;
+    }
+
+    body section form .divButton{
+        text-align: center;
+        margin-top: 15px;
+    }
+    body section form .divInputImg{
+        width: 100%;
+        margin: 15px 0 15px 0;
+    }
+    .labelFile{
+        padding-bottom: 15px;
+    }
+    .labelFile, .inputFile{
+        width: 50%;
+        display: block;
+        margin: auto;
+    }
+
+    /* Footer */
+    footer nav ul li{
+        font-size: 13px;
+    }
+    footer nav ul h3{
+        font-size: 15px;
+    }
+}

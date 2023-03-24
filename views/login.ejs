@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+    <script src="https://kit.fontawesome.com/fa36d49c1a.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <%- include('partials/header.ejs')%>
+    <form action="/users/login" method="POST" class="formLogin">
+        <div class="formContent">
+            <img src="/img/logoBlack.png" alt="">
+
+            <h2>Welcome</h2>
+
+            <div class="divForm">
+                <input class="barra" type="text" name="email" placeholder="email"  value="<%=locals.old && old.email ? old.email: '' %>">
+                <div class="errorMsg">
+                    <% if (locals.errors && errors.email) {%> 
+                        <p class="error"><%= errors.email.msg%> <i class="fa-solid fa-circle-exclamation"></i></p>
+                    <% } %>
+
+                    <% if (locals.errors && errors.validationUser) {%> 
+                        <p class="error"><%= errors.validationUser.msg%> <i class="fa-solid fa-circle-exclamation"></i></p>
+                    <% } %> 
+                </div>
+            </div>
+
+            <div class="divForm">
+                <input class="barra" type="password" name="password" placeholder="Password">
+                <div class="errorMsg">
+                    <% if (locals.errors && errors.password) {%> 
+                        <p class="error"><%= errors.password.msg%> <i class="fa-solid fa-circle-exclamation"></i></p> 
+                    <% } %>
+
+                    <% if (locals.errors && errors.validationPassword) {%> 
+                        <p class="error"><%= errors.validationPassword.msg%> <i class="fa-solid fa-circle-exclamation"></i></p>
+                    <% } %>                
+                 </div>
+            </div>
+
+            <div class="divForm">
+            <label for="remember">Remember me</label>
+            <input class ="checkbox" type="checkbox" name="remember" id="">            
+            </div>
+
+            <div class="divForm">
+                <a class="reestablecerContrasena" href="/users/restorepassword">Forgot your password?</a>
+            </div>
+
+            <div class="divForm">
+                <a class="register" href="/users/signup">Register</a>
+            </div>
+
+            <div class="divForm">
+                <a class="textBoton"><button class="boton" type="submit">Log in</button></a>
+            </div>
+        </div>
+    </form>
+
+   
+    <%- include('partials/footer.ejs')%>
+ <!-- modal -->
+ <input class="openModal" type="radio" name="modal" id="openModal">
+ <label class="labelOpenModal" for="openModal">who I am?</label> 
+ <input class="closeModal" type="radio" name="modal" id="closeModal">
+ 
+ <div class="modal" id="modal">
+     <label class="labelCloseModal" for="closeModal">X</label>
+ 
+ <h2>Alejandro García</h2>
+     <p>
+ I am a proactive engineer, passionate about the digital age and the technologies that allow us to stay connected. Day by day I am growing and learning; I like teamwork and sharing my knowledge with my colleagues.
+ I have extensive experience in programming and applied and consumer electronics, as well as research projects in multidisciplinary teams. Please feel free about contacting me!
+ </p>
+ 
+ <a class="contactMe" href="/personalcontact">Contact Me!</a>
+ </div>    <script src="/js/burger.js"></script>
+</body>
+</html>

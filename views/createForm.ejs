@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/fa36d49c1a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/create.css">
+    <link rel="stylesheet" href="/styles/modal.css">   
+    <title>Create a product</title>
+</head>
+<body>
+    <%- include('partials/header.ejs')%>
+  
+    <div class="divTop">
+        <p>Create Form:</p>
+    </div>
+
+    <section class="allForm">
+        <form action="/products/create" method="post" enctype="multipart/form-data">
+          <div class="divInput">
+             <label for="name">Name of the product:</label>
+             <input type="text" class="input" name="name" id="name" placeholder="Name" value="<%=locals.old && old.name ? old.name : '' %>">
+               <div class="errorMsg">
+                <!-- Anything that we send to the views came in an object called LOCALS-->
+                <% if (locals.errors && errors.name) {%> <!--If the errors exist, also the error for this field, the error is rendered-->
+                <p><%= errors.name.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                <% } %>
+             </div>
+            </div>
+
+          <div class="divInput">
+            <label for="price">Price of the product:</label>
+            <input type="number" class="input" name="price" id="price" placeholder="Price (in number)" value="<%=locals.old && old.price ? old.price : '' %>">
+            <div class="errorMsg">
+                <% if (locals.errors && errors.price) {%>
+                <p><%= errors.price.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                <% } %>
+             </div>
+         </div>
+
+         <div class="divInput">
+            <label for="discount">Discount of the product:</label>
+            <input type="number" class="input" name="discount" id="discount" placeholder="Discount (in number)"  value="<%=locals.old && old.discount ? old.discount : '' %>">
+            <div class="errorMsg">
+                <% if (locals.errors && errors.discount) {%>
+                <p><%= errors.discount.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                <% } %>
+             </div>
+         </div>
+
+         <div class="divInput">
+            <label for="msi">MIF of the product:</label>
+            <input type="number" class="input" name="mif" id="mif" placeholder="MIF (in number)"  value="<%=locals.old && old.mif ? old.mif: '' %>">
+            <div class="errorMsg">
+                <% if (locals.errors && errors.mif) {%>
+                <p><%= errors.mif.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                <% } %>
+             </div>
+         </div>
+
+         <div class="textArea">
+            <label for="description">Description of the product:</label>
+            <textarea name="description" id="description" placeholder="<%=locals.old && old.description ? old.description : '' %>"></textarea>
+             <div class="errorMsg">
+                <% if (locals.errors && errors.description) {%>
+                <p><%= errors.description.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                <% } %>
+             </div>
+         </div>
+
+         <div class="divInputImg">
+            <label for="image" class="labelFile">Image of the product: (JPG, PNG, GIF, JPEG)</label>
+            <input type="file" class="inputFile" name="image" id="image">
+            <div class="errorMsg">
+               <% if (locals.errors && errors.image) {%>
+               <p><%= errors.image.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+               <% } %>
+            </div>
+         </div>
+
+         <div class="divButton">
+            <button type="submit" class="saveButton">Save Product</button>
+        </div>
+        </form>
+    </section>
+
+    <%- include('partials/footer.ejs')%>
+  
+ <!-- modal -->
+ <input class="openModal" type="radio" name="modal" id="openModal">
+ <label class="labelOpenModal" for="openModal">who I am?</label> 
+ <input class="closeModal" type="radio" name="modal" id="closeModal">
+ 
+ <div class="modal" id="modal">
+     <label class="labelCloseModal" for="closeModal">X</label>
+ 
+ <h2>Alejandro García</h2>
+     <p>
+ I am a proactive engineer, passionate about the digital age and the technologies that allow us to stay connected. Day by day I am growing and learning; I like teamwork and sharing my knowledge with my colleagues.
+ I have extensive experience in programming and applied and consumer electronics, as well as research projects in multidisciplinary teams. Please feel free about contacting me!
+ </p>
+ 
+ <a class="contactMe" href="/personalcontact">Contact Me!</a>
+ </div>
+ <script src="/js/burger.js"></script>
+
+</body>
+</html>

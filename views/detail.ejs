@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/fa36d49c1a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/detail.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+    <title>Detail</title>
+</head>
+<body>
+    <%- include('partials/header.ejs')%>
+
+    <section class="mainSection">
+        <article class="article">
+            <div class="divImage">
+                <img src="/img/products/selectProducts/<%= product.image %>" alt="">
+            </div>
+            <div class="productInfo">
+                <p class="pName"><%=product.name%></p>
+                <div class="price">
+                    <span class="spanPrice">$<%=product.price%></span><span class="spanDiscount">Discount: <%=product.discount%>%</span>
+                    <p class="pFinalPrice">$<%=product.finalPrice%></p>
+                </div>
+                <div class="infoBottom">
+                    <p><i class="fa-solid fa-credit-card"></i> Up to <%=product.msi%> months interest free</p>
+                    <p><i class="fa-solid fa-shop"></i> Pick up in seller's store</p>
+                </div>
+
+                <div>
+                    <a href="#"><button class="buttonBuy"><p>Buy now</p></button></a>
+                </div>
+                <hr>
+                <div class="actionButton">
+                    <div class="divEdit"><a href="/products/edit/<%= product.id %>" class="buttonEdit"><button class="buttonEdit">Edit Product</button></a></div>
+                    <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" class="formDelete">
+                    <button type="submit" class="buttonDelete">Delete</button>
+                    </form>
+                </div>
+                <div class="productDescription">
+                <%= product.description%>
+                </div>
+            </div>
+        </article>
+    </section>
+    <%- include('partials/footer.ejs')%>
+    <%- include('partials/modal.ejs')%>
+    <script src="/js/burger.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI';
+}
+
+body{
+    background-color: blanchedalmond;
+}
+
+span{
+    font-size: 35px;
+    font-weight: bold;
+    color: blue;
+}

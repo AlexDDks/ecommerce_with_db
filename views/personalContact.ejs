@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/modal.css">
+    <link rel="stylesheet" href="/styles/personalContact.css">
+    <script src="https://kit.fontawesome.com/fa36d49c1a.js" crossorigin="anonymous"></script>
+    <title>Contact me</title>
+</head>
+<body>
+    <%- include('partials/header.ejs')%>
+
+    <section class="contact">
+        <div class="divInfo">
+            <p>M. en C. Manuel Alejandro Garcia Andrade</p>
+        </div>
+
+        <div class="divInfo">
+            <a href="mailto:magarciaa92@gmail.com?subject=Contact&body=Hi%20Alex%2C%20I%20have%20seen%20your%20portfolio%2C%20and%20I'm%20interested%20in%20contacting%20you"><p>magarciaa92@gmail.com</p></a>
+        </div>
+        
+        <div class="divInfo">
+           <a href="https://wa.me/525561303917"><p>+52 5561303917</p></a> 
+        </div>
+        
+        <div class="divInfo">
+            <p>Mexico City, Mexico</p>
+        </div>
+        
+        <div class="divIcons">
+            <a href="https://www.linkedin.com/in/magarciaa92" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.github.com/AlexDDks" target="_blank"><i class="fa-brands fa-github"></i></a>
+        </div>
+    </section>
+
+    <%- include('partials/footer.ejs')%>
+    <%- include('partials/modal.ejs')%>
+    <script src="/js/burger.js"></script>
+</body>
+</html>

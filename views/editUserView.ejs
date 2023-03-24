@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/fa36d49c1a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/edit.css">
+    <link rel="stylesheet" href="/styles/register.css">
+    <link rel="stylesheet" href="/styles/modal.css">   
+    <title>Edit User</title>
+</head>
+<body>
+
+    <%- include('partials/header.ejs')%>
+
+   
+    <div class="divTop">
+        <p>You are editing: <%= user.email%></p>
+    </div>
+    <section class="allForm">
+      <form action="/users/edit/<%= user.id %>?_method=PUT"
+         method="POST" enctype="multipart/form-data"><div class="formContent">
+            <img src="/img/logoBlack.png" alt="">
+            <h2>Welcome</h2>
+
+            <div class="divForm">
+                <input class="barra" type="text" name="email" placeholder="New email" value="<%=locals.old && old.email ? old.email : '' %>">
+                <div class="errorMsg">
+                    <% if (locals.errors && errors.email) {%>
+                        <p><%= errors.email.msg%></p>
+                        <% } %>
+                </div>
+            </div>
+
+            <div class="divForm">
+                <input class="barra" type="password" name="password" placeholder="New Password">
+                <div class="errorMsg">
+                    <% if (locals.errors && errors.password) {%>
+                        <p><%= errors.password.msg%></p>
+                    <% } %>
+
+                    <% if (locals.errors && errors.validationPassword) {%>
+                        <p><%= errors.validationPassword.msg%></p>
+                    <% } %>
+                 </div>
+            </div>
+
+            <div class="divForm">
+                <input class="barra" type="password" name="passwordRep" placeholder="Repeate the password">
+                <div class="errorMsg">
+                    <% if (locals.errors && errors.passwordRep) {%> 
+                        <p><%= errors.passwordRep.msg%></p>
+                    <% } %>
+
+                    <% if (locals.errors && errors.validationPassword) {%>
+                        <p><%= errors.validationPassword.msg%></p>
+                    <% } %>
+                 </div>
+            </div>
+
+            <div class="divInputImg">
+                <label for="image" class="labelFile">Image: (JPG, PNG, GIF, JPEG)</label>
+                <input type="file" class="inputFile" name="image" id="image">
+                <div class="errorMsg">
+                   <% if (locals.errors && errors.image) {%>
+                   <p><%= errors.image.msg%></p>
+                   <% } %>
+                </div>
+             </div>
+
+            <div class="divEdit"><a href="/" class="buttonEdit"><button class="buttonEdit">Edit User</button></a></div>
+
+            </div>
+        </form>
+    </section>
+
+    <%- include('partials/footer.ejs')%>
+    <%- include('partials/modal.ejs')%>
+  
+<script src="/js/burger.js"></script>
+</body>
+</html>

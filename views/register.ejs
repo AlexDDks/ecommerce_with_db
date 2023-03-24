@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/register.css">
+    <link rel="stylesheet" href="/styles/modal.css">
+    <script src="https://kit.fontawesome.com/fa36d49c1a.js" crossorigin="anonymous"></script>
+    <title>Register</title>
+</head>
+<body>
+    <%- include('partials/header.ejs')%>
+    <form action="/users/register" method="post" class="formLogin" enctype="multipart/form-data">
+        <div class="formContent">
+            <img src="/img/logoBlack.png" alt="">
+            <h2>Welcome</h2>
+
+            <div class="divForm">
+                <input class="barra" type="text" name="email" placeholder="email" value="<%=locals.old && old.email ? old.email: '' %>">
+                <div class="errorMsg">
+                    <% if (locals.errors && errors.email) {%>
+                        <p class="error"><%= errors.email.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                        <% } %>
+                    
+                    <% if (locals.errors && errors.validationUserExist) {%>
+                        <p class="error"><%= errors.validationUserExist.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                    <% } %>
+                        
+                 </div>
+            </div>
+
+            <div class="divForm">
+                <input class="barra" type="password" name="password" placeholder="Password">
+                <div class="errorMsg">
+                    <% if (locals.errors && errors.password) {%>
+                        <p class="error"><%= errors.password.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                    <% } %>
+
+                    <% if (locals.errors && errors.validationPassword) {%>
+                        <p class="error"><%= errors.validationPassword.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                    <% } %>
+                 </div>
+            </div>
+
+            <div class="divForm">
+                <input class="barra" type="password" name="passwordRep" placeholder="Repeate your password">
+                <div class="errorMsg">
+                    <% if (locals.errors && errors.passwordRep) {%> 
+                        <p class="error"><%= errors.passwordRep.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                    <% } %>
+
+                    <% if (locals.errors && errors.validationPassword) {%>
+                        <p class="error"><%= errors.validationPassword.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                    <% } %>
+                 </div>
+            </div>
+
+            <div class="divInputImg">
+                <label for="image" class="labelFile">Image: (.jpg, .png, .gif, .jpeg)</label>
+                <input type="file" class="inputFile" name="image" id="image">
+                <div class="errorMsg">
+                   <% if (locals.errors && errors.image) {%>
+                   <p class="error"><%= errors.image.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                   <% } %>
+                </div>
+             </div>
+
+            <div class="divForm">
+                <a class="login" href="/users/login">Do you already have an account?</a>
+            </div>
+     
+            <div class="divForm">
+                <button class="boton" type="submit" href="/"><a class="textBoton">Register</a></button>
+            </div>
+            
+        </div>
+    </form>
+
+   
+    <%- include('partials/footer.ejs')%>
+    <%- include('partials/modal.ejs')%>
+    <script src="/js/burger.js"></script>
+</body>
+</html>

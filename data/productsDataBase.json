@@ -1,0 +1,86 @@
+[
+ {
+  "id": 3,
+  "name": "Cellphone 2",
+  "price": "5000",
+  "discount": "5",
+  "msi": "0",
+  "description": "This is the cellphone 2",
+  "image": "smartphone.png",
+  "finalPrice": 4750
+ },
+ {
+  "id": 4,
+  "name": "MANU COMPU",
+  "price": "12122",
+  "discount": "12",
+  "msi": "1",
+  "description": "ESTA ES UNA PRUEBA",
+  "image": "laptop.png"
+ },
+ {
+  "id": 5,
+  "name": "Cellphone 3",
+  "price": 5000,
+  "msi": 12,
+  "discount": 3,
+  "description": "Smartphone Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  "image": "smartphone.png"
+ },
+ {
+  "id": 6,
+  "name": "Laptop 3",
+  "price": 12000,
+  "msi": 6,
+  "discount": 5,
+  "description": "Laptop Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  "image": "laptop.png"
+ },
+ {
+  "id": 7,
+  "name": "Cellphone 4",
+  "price": 5000,
+  "msi": 12,
+  "discount": 3,
+  "description": "Smartphone Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  "image": "smartphone.png"
+ },
+ {
+  "id": 9,
+  "name": "Cellphone 5",
+  "price": 5000,
+  "msi": 3,
+  "discount": 3,
+  "description": "Smartphone Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  "image": "smartphone.png"
+ },
+ {
+  "id": 10,
+  "name": "Laptop 5",
+  "price": 12000,
+  "msi": 12,
+  "discount": 5,
+  "description": "Laptop Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  "image": "laptop.png",
+  "finalPrice": 11400
+ },
+ {
+  "id": 11,
+  "name": "Iphone X",
+  "price": "6999",
+  "discount": "5",
+  "msi": "12",
+  "description": "Esta es una prueba del Iphone",
+  "image": "smartphone.png",
+  "finalPrice": 6649.05
+ },
+ {
+  "id": 12,
+  "name": "Celular de Juan",
+  "price": "1200",
+  "discount": "10",
+  "msi": "10",
+  "description": "aaa",
+  "image": "image-1676488585589.jpeg"
+ }
+]

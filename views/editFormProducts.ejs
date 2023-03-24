@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/fa36d49c1a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/edit.css">   
+    <link rel="stylesheet" href="/styles/modal.css">   
+    <title>Edit</title>
+</head>
+<body>
+
+    <%- include('partials/header.ejs')%>
+
+   
+    <div class="divTop">
+        <p>You are editing: <%= product.name%></p>
+    </div>
+    <section class="allForm">
+      <form action="/products/edit/<%= product.id %>?_method=PUT"
+         method="POST">
+         <div class="divInput">
+             <label for="name">Name of the product:</label>
+             <input type="text" name="name" id="name" placeholder="<%=product.name%>" value="<%=locals.old && old.name ? old.name : '' %>">
+             <div class="errorMsg">
+                <% if (locals.errors && errors.name) {%>
+                <p><%= errors.name.msg%> <i class="fa-solid fa-circle-exclamation"></i></p>
+                <% } %>
+             </div>
+              </div>
+
+          <div class="divInput">
+            <label for="price">Price of the product:</label>
+            <input type="number" name="price" id="price" placeholder="<%=product.price%>" value="<%=locals.old && old.price ? old.price : '' %>">
+            <div class="errorMsg">
+                <% if (locals.errors && errors.price) {%>
+                <p><%= errors.price.msg%> <i class="fa-solid fa-circle-exclamation"></i></p>
+                <% } %>
+             </div>
+         </div>
+
+         <div class="divInput">
+            <label for="discount">Discount of the product:</label>
+            <input type="number" name="discount" id="discount" placeholder="<%=product.discount%>"  value="<%=locals.old && old.discount ? old.discount : '' %>">
+            <div class="errorMsg">
+                <% if (locals.errors && errors.discount) {%>
+                <p><%= errors.discount.msg%> <i class="fa-solid fa-circle-exclamation"></i></p>
+                <% } %>
+             </div>
+         </div>
+
+         <div class="divInput">
+            <label for="msi">MIF of the product:</label>
+            <input type="number" name="msi" id="msi" placeholder="<%=product.msi%>" value="<%=locals.old && old.msi ? old.msi : '' %>">
+            <div class="errorMsg">
+                <% if (locals.errors && errors.msi) {%>
+                <p><%= errors.msi.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                <% } %>
+             </div>
+         </div>
+
+         <div class="textArea">
+            <label for="description">Description of the product:</label>
+            <textarea type="text" name="description" id="description" placeholder="<%=locals.old && old.description ? old.description : '' %>"></textarea>
+            <div class="errorMsg">
+                <% if (locals.errors && errors.description) {%>
+                <p><%= errors.description.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                <% } %>
+             </div>
+        </div>
+
+         <div class="divButton">
+            <button type="submit" class="saveButton">Save Product</button>
+        </div>
+        </form>
+    </section>
+
+    <%- include('partials/footer.ejs')%>
+    <%- include('partials/modal.ejs')%>
+  
+<script src="/js/burger.js"></script>
+</body>
+</html>
