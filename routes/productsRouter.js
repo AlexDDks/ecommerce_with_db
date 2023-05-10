@@ -1,32 +1,25 @@
-const express = require("express") 
-const router = express.Router() 
-const path = require('path');
-const multer = require('multer');
-const { body } = require('express-validator'); //We just use the body function, not all the library, so with destructuring assigment we are able to instance the function body in the constant body
+const express = require("express") //We required the framework Express in order to use all its methods.
+const router = express.Router() //We executed the Router method, saving its properties in the const router, we don't want all the express object, just the packagerouter, so we just use only that.
+const path = require('path'); // We require from Node the native module path to use it to place the image that is gonna be uploaded in the forms.
+const multer = require('multer'); //We required module multer in order to use it for uplading files (specially images in this case).
+const {body} = require('express-validator'); //We just use the body function, not all the library, so with destructuring assigment we are able to instance the function body in the constant body.
 
 // Requires
-const productsController=require("../controllers/productsController") 
+const productsController=require("../controllers/productsController") //We required the module that we have already export in the controller of products.
 
 //Multer
-const storage = multer.diskStorage({
+//All this code is based in the documentation: multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.
+const storage = multer.diskStorage({ 
     destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '../public/img/products/selectProducts'))
+    cb(null, path.join(__dirname, '../public/img/products/selectProducts')) //We establish where the file is gonna be saved
   },
   filename: function (req, file, cb) {
-    const nombre = file.originalname
-    // let idx = 0; 
-    // for (let i = nombre.length; i >= 0; i--) {
-    //   const char = nombre[i]
-    //   if (char === '.') {
-    //     idx = i
-    //     break;
-    //   }
-    // }  
-    // const name = nombre.slice(0, idx)
-    const ext = file.mimetype.split('/')
-    cb(null, file.fieldname + '-' + Date.now()+"."+ext[1]) //We also could use the path.extname(file.originalname)
+    //The file object has many properties such as originalname, mimetye, fieldname, and so on that we can use.
+    const ext = file.mimetype.split('/') //From the mimetype, we extract de extension. The split function "split" an string taking account a breakpoint, in this case the slash and creates an array with two items, the first one [0], with the left side of the split, and the rigth side [1] with the other one (in this case in the position 1, there is the extension), We also could use the path.extname(file.originalname) to obtain the extension
+    cb(null, file.fieldname + '-' + Date.now()+"."+ext[1]) // Here we create the new name of the file with the object date and extension (in order of not creater duplicated names)
   }
 })
+
 const upload = multer({ storage }) //With the const storage, we asign the name and destination of our file
 
 //Validations

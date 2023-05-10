@@ -1,0 +1,5 @@
+const path  = require("path")
+// console.log(path.join(__dirname, '../public/img/products/selectProducts'))
+console.log(path.join(__dirname, 'public',"img", "/hola"))
+console.log(path.resolve("/hola"))
+console.log(__dirname)

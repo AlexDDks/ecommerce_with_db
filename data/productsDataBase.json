@@ -82,5 +82,23 @@
   "msi": "10",
   "description": "aaa",
   "image": "image-1676488585589.jpeg"
+ },
+ {
+  "id": 13,
+  "name": "prueba 9 abril",
+  "price": "231312",
+  "discount": "1",
+  "mif": "12",
+  "description": "123123123",
+  "image": "image-1683740760092.png"
+ },
+ {
+  "id": 14,
+  "name": "prueba 9 abril",
+  "price": "1000",
+  "discount": "12",
+  "mif": "12",
+  "description": "1231",
+  "image": "image-1683740817423.png"
  }
 ]

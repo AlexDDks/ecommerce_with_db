@@ -1,10 +1,8 @@
 const controller = {
+
+   // All the views are rendered here, as well as if some mathematical/logical operations are required, here is where the magic is done 
    index: (req,res) => {
         res.render("index")
-   
-         // if (req.session.user) {
-         //      res.render("index")
-         // }
    },
 
    socialMedia: (req,res) => {
