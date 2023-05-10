@@ -72,6 +72,7 @@ router.get("/signup",usersController.register)
 router.get("/profile/:id?",usersController.profile) 
 router.get("/edit/:id", usersController.edit)
 router.get("/logout", usersController.logout)
+router.get("/users", usersController.users)
 
 
 //POST

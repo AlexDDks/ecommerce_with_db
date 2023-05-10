@@ -4,6 +4,7 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 const usersFilePath = path.join(__dirname, '../data/userDataBase.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+let db = require("../database/models");
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -174,6 +175,14 @@ delete: (req, res) => {
      res.clearCookie("remember")
      req.session.destroy()
      res.redirect("/")
+   },
+
+   users: (req, res) => { //With this method we delete the cookien and the req.session variable. So any information about the user is saved at the moment of executing this code.
+      //Usamos el nombre del alias para acceder al modelo que deseamos. 
+     db.Users.findAll() //The method findAll, bring us all the registers  of a table
+     .then(function(Users){ //We use a then because we are in an asyncronus language. This function is which in fact receives the Users
+          res.render("Users", {Users}) //The action
+     })
    }
 }
 module.exports=controller
