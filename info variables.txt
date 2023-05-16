@@ -1,0 +1,3 @@
+const y let no se pueden declarar 2 veces;
+const y let tiene scope local
+var tiene scope global

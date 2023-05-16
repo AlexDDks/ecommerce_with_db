@@ -52,6 +52,6 @@ app.use((req, res, next) => {
 
 // Server
 app.listen(3000, () => { // Whit the listen method, we created a server in the port 3000. In order to figured out if the server is working, we can add a message in console that is gonna be shown only if rhe server is running
-    console.log("Server has been created in port 3000")
+    return console.log("Server has been created in port 3000")
 })
 

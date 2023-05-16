@@ -1,0 +1,1 @@
+Me quedé nombrando lo que hacen los controladores de productos básicos y agregando una ventana modal de advertencia de eliminar productos

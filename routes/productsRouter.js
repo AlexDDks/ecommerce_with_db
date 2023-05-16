@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
   }
 })
 
-const upload = multer({ storage }) //With the const storage, we asign the name and destination of our file
+const upload = multer({ storage }) //Here we save all properties of storage in the const upload
 
 //Validations
 const validateEditForm = [
@@ -66,17 +66,16 @@ const validateCreateForm = [
 router.get("/",productsController.products) 
 router.get("/create",productsController.createForm) 
 router.get("/shoppingcar",productsController.shoppingCar)
-router.get("/detail/:id",productsController.detail)
-router.get("/edit/:id",productsController.editForm) 
+router.get("/detail/:id",productsController.detail) //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/products/detail/<%= product.id %>">
+router.get("/edit/:id",productsController.editForm) //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/products/detail/<%= product.id %>">
 
 // Post
-router.post('/create', upload.single('image'), validateCreateForm, productsController.createStore);
-//upload.single('image'), only one image (which was uploaded in the name="image")
+router.post('/create', upload.single('image'), validateCreateForm, productsController.createStore); //This route sends us to the controller that made all the magi to upload an image and save it in the DB. upload.single('image'), means that only one image (which was uploaded in the fild name="image") is gonna be uploaded
 
 // Put
-router.put('/edit/:id', validateEditForm, productsController.editUpdate);
+router.put('/edit/:id', validateEditForm, productsController.editUpdate); //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/products/edit/<%= product.id %>">
 
 // Delete
-router.delete('/delete/:id', productsController.delete);
+router.delete('/delete/:id', productsController.delete); //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/products/delete/<%= product.id %>">
 
-module.exports=router 
+module.exports=router //We must export the variable router in order of being required in the entry point paths
