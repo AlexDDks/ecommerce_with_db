@@ -1,5 +1,5 @@
 const express = require("express") //We required the framework Express in order to use all its methods.
-const router = express.Router() //We executed the Router method, saving its properties in the const router, we don't want all the express object, just the packagerouter, so we just use only that.
+const router = express.Router() //We executed the Router method, saving its properties in the const router, we don't want all the express object, just the package router, so we just use only that.
 const path = require('path'); // We require from Node the native module path to use it to place the image that is gonna be uploaded in the forms.
 const multer = require('multer'); //We required module multer in order to use it for uplading files (specially images in this case).
 const {body} = require('express-validator'); //We just use the body function, not all the library, so with destructuring assigment we are able to instance the function body in the constant body.
@@ -7,8 +7,8 @@ const {body} = require('express-validator'); //We just use the body function, no
 // Requires
 const productsController=require("../controllers/productsController") //We required the module that we have already export in the controller of products.
 
-//Multer
-//All this code is based in the documentation: multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.
+/*Multer
+//All this code is based in the documentation: multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.*/
 const storage = multer.diskStorage({ 
     destination: function (req, file, cb) {
     cb(null, path.join(__dirname, '../public/img/products/selectProducts')) //We establish where the file is gonna be saved
@@ -22,7 +22,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage }) //Here we save all properties of storage in the const upload
 
-//Validations
+/*Validations
+We use Express validator in order of validate (you will forgive the repetition) all the inputs in the forms, in this case the edit and create ones. The sintax is based on documentation. The most of the validation are centered avoiding the null values in the blanks (not empty), so in the object resultsValidation of express validator it's gonna appear all the results of the fields that have some mistakes, that information is gonna be used in the controller and views. The atribute bail allow us to include more that one validation.*/
 const validateEditForm = [
   body("name").notEmpty().withMessage("You must fill the name"),
   body("price").notEmpty().withMessage("You must fill the price").bail()
@@ -44,16 +45,16 @@ const validateCreateForm = [
   .isNumeric().withMessage("It needs to be a number"),
   body("description").notEmpty().withMessage("You must fill the description"),
 
-  body("image").custom((value, {req}) => { //There are not validations from express to validate files, so we need to do CUSTOM VALIDATIONS, the structure are all in the documentation
-    let file =req.file;
-    if(!file){
+  body("image").custom((value, {req}) => { //There are not validations from express to validate files, so we need to do CUSTOM VALIDATIONS, the structure are all on the documentation
+    let file =req.file; //In the req objetc (the req object represents the HTTP request and has properties for the request query string, parameters, body, HTTP headers, and so on) the file object file is included thanks to the use of multer, so we save all its properties in the the file variable.
+    if(!file){ //If a file wasn't upploaded, a mistake is gonna appear
       throw new Error ("You must uppload an image");
     }
-    else{
-      let acceptedExtensions = [".jpg", ".png", ".gif", ".jpeg"];
-      let fileExtension = path.extname(file.originalname);
-      if(!acceptedExtensions.includes(fileExtension)){ //Includes return true or false if a paramenter is included in the analized array (for example, we will obtain a true if the extension of the uploaded file contains the extensions that are accepted )
-        throw new Error ("The image extension accepted are: jpg, png, .jpeg and gif ");
+    else{//If a file was upploaded, this next sections of validations are gonna be executed
+      let acceptedExtensions = [".jpg", ".png", ".gif", ".jpeg"]; //In this variable, we saved an array of strings with some common extensions of images
+      let fileExtension = path.extname(file.originalname); //With the object file, there was upploaded its information such as the complete name saved in the propertie "originalname". The path.extname() method returns the extension of a file path what is saved in this variable
+      if(!acceptedExtensions.includes(fileExtension)){ //Includes return true or false if a paramenter is included in the analized array (for example, we will obtain a true if the extension of the uploaded file contains the extensions that are accepted). The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate. So if the return is false, a new error is send
+        throw new Error ("The image extension accepted are: jpg, png, .jpeg and gif "); //Error
       }
     }
 

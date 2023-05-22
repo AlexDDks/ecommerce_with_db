@@ -3,24 +3,22 @@ const app = express(); // We invoke the variable express and save the funcionali
 const path = require("path"); // We require from Node the native module path
 const publicPath = path.join(__dirname, "public"); // We save the funcionality of the method resolve in publicPath in order to have a public folder. We just have created an absolute path which will be used for the method static of express. It recieves the parameters of the route. We could just put in the arguments that the folder is PUBLIC, but in another PC, the absolute route could be different, for that reason we use the string DIRNAME, so we can reach the public folder in an absolute enviroment. __dirname is a variable that give to us the name of the folder where we are, so with __dirname, "public", we create a path that ends in the folder "public".
 
-const session = require("express-session")//?
-var cookieParser = require('cookie-parser')//?
-
-app.use(session({secret: "Secret!!!"})) //Using of session at app level
+const session = require("express-session")//We require this module and save all its functionallity in this constant. The sessions variables are globals and I am using those in the views, where I need to share information of a logged user, for example.
+app.use(session({secret: "Secret!!!"})) //Using of session at app level (based on documentation)
 
 //Public folder
 app.use(express.static(publicPath)) // Using the method static we tell to express where the direction of public folder is. It recieves a root that in this case is insede the variable publicPath.
 
 // Cookies
+const cookieParser = require('cookie-parser')//We require this module and save all its functionallity in this constant
 app.use(cookieParser()); // This is a native module, that allows us to use cookies.
 
 const rememberMiddleware = require("./middlewares/rememberMiddleware")
 app.use(rememberMiddleware) //The middleware of cookie is gonna be executed every time, in every req,res.
 
-
 //User
 const localsUser = require("./middlewares/localsUser")
-app.use(localsUser)
+app.use(localsUser)//The middleware of user is gonna be executed every time, in every req,res.
 
 // View engine
 app.set('view engine', 'ejs'); // We are using the EJS view engine, so we tell it to Express in order to use it.

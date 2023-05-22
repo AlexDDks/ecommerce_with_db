@@ -10,15 +10,6 @@
   "finalPrice": 10667.36
  },
  {
-  "id": 5,
-  "name": "Cellphone 3",
-  "price": 5000,
-  "msi": 12,
-  "discount": 3,
-  "description": "Smartphone Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-  "image": "smartphone.png"
- },
- {
   "id": 9,
   "name": "Cellphone 5",
   "price": 5000,
@@ -36,15 +27,5 @@
   "msi": "1",
   "description": "asdasds",
   "image": "laptop.png"
- },
- {
-  "id": 12,
-  "name": "Celular de Juan",
-  "price": "1200",
-  "discount": "10",
-  "msi": "10",
-  "description": "aaa",
-  "image": "image-1676488585589.jpeg",
-  "finalPrice": 1080
  }
 ]

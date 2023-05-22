@@ -1,6 +1,6 @@
 function userMiddleware (req, res, next) {
-    if (req.session.user)  { //Here we implement that if the cookie named remember exist (in the controller of users we implement that the user must have checked up the button of remember me), but the req.session has expired (for example, if we close the browser) we assign a variable called loggedUser with the user that signed up before. If loggedUser already exist, nothing of this happend.
-       res.locals.user=req.session.user
+    if (req.session.user)  { //If the req.session.user exists, the conditional is executed:
+       res.locals.user=req.session.user //We save the information of the variable session into the locals variable, in order of use this information in the views, like to render an image, an so on.
     }
     next()
 }

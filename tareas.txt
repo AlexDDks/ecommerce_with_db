@@ -1,1 +1,3 @@
-Me quedé nombrando lo que hacen los controladores de productos básicos y agregando una ventana modal de advertencia de eliminar productos
+1. Me quedé nombrando lo que hacen los controladores de productos básicos y agregando una ventana modal de advertencia de eliminar productos
+2. En el edit del usuario, checar si podemos mandar la variable old y también conservar la imagen
+3. Investigar el fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
