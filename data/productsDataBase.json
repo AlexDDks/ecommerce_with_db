@@ -1,15 +1,5 @@
 [
  {
-  "id": 4,
-  "name": "MANU COMPU",
-  "price": "12122",
-  "discount": "12",
-  "msi": "1",
-  "description": "ESTA ES UNA PRUEBA",
-  "image": "laptop.png",
-  "finalPrice": 10667.36
- },
- {
   "id": 9,
   "name": "Cellphone 5",
   "price": 5000,

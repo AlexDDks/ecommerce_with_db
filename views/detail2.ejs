@@ -21,8 +21,9 @@
             <div class="productInfo">
                 <p class="pName"><%=product.name%></p>
                 <div class="price">
+                    <span class="spanDonotPay">Do not pay:</span>
                     <span class="spanPrice">$<%=product.price%></span><span class="spanDiscount">Discount: <%=product.discount%>%</span>
-                    <p class="pFinalPrice">$<%=product.finalPrice%></p>
+                    <p class="pFinalPrice">Final price: $<%=product.finalPrice%></p>
                 </div>
                 <div class="infoBottom">
                     <p><i class="fa-solid fa-credit-card"></i> Up to <%=product.msi%> months interest free</p>
@@ -35,6 +36,7 @@
                 <hr>
                 <div class="actionButton">
                     <div class="divEdit"><a href="/products/edit/<%= product.id %>" class="buttonEdit"><button class="buttonEdit">Edit Product</button></a></div>
+                    
                     <%- include('partials/modalDelete.ejs')%>
                 </div>
                 <div class="productDescription">

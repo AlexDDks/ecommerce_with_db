@@ -1,67 +1,90 @@
 /* Modal */
+.labelOpenModalDelete{
+    width: 150px;
+    font-size: 28px;
+    color: white;
+    background-color: rgb(127, 146, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 .modalDelete{
     background-color: rgba(18, 18, 18,0.95);
     position: fixed;
     top: -100vh;
     left: -25vw;
     width: 100%;
+    height: 157px;
     z-index: 100;
     transition: all 1s;
+    border-radius: 20px;
 }
 
 .modalDelete h2{
 text-align: center;
-margin-top: 130px;
+margin-top: 20px;
 color: white;
 font-size: 28px;
 font-weight: 400;
 }
 
-.modalDelete p{
-    width: 80%;
-    text-align: justify;
-    position: absolute;
-    left: 10%;
-    font-size: 23px;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: 0;
-    color: white;
+.formDelete{
+width: 100%;
 }
+
+form .buttonDelete{
+    background-color: rgba(255, 255, 255, 0.8);
+    display: block;
+    width: 100px;
+    margin: auto;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 400;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 150ms;
+}
+
+form .buttonDelete:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+.labelCloseModalDelete{
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+    font-weight: 400;
+    transition: all 150ms;
+    position: absolute;
+    right:10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.labelCloseModalDelete:hover{
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    font-weight: 400;
+}
+
 
 .openModalDelete{
     display: none;
 }
 
-/* .labelOpenModalDelete{
-    position: fixed;
-    z-index: 11;
-    top: 21px;
-    right: 40px; 
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.7);
-    transition: all 150ms;
-    cursor: pointer;
-} */
-
-/* .labelOpenModal:hover{
- color: rgba(255, 255, 255, 0.9);
-} */
-
 .openModalDelete:checked~.modalDelete{
-        top: 25vh;
+    position: fixed;
+    top: 40vh;
 }
 
 .closeModalDelete{
  display: none;
-}
-
-.labelCloseModalDelete{
-    border: 2px red solid;
-}
-
-.labelCloseModalDelete:hover{
-        color: rgba(255, 255, 255, 0.9);
 }
 
 .closeModalDelete:checked ~ .modalDelete{

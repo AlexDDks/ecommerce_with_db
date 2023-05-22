@@ -19,13 +19,6 @@ a{
     text-decoration: none;
 }
 
-body{
-    background-color: rgb(234, 234, 234);
-    max-width: 2200px;
-    min-width: 355px;
-}
-
-
 /* Vertical menu login */
 body header .ulNavHeader .verticalMenu{
     display: none;
@@ -47,7 +40,6 @@ body header .ulNavHeader .verticalMenu li:hover{
     background-color: rgba(110, 110, 110, 0.8);
 }
 
-
 .divLogin{
     height: 60px;
     display: flex;
@@ -58,7 +50,6 @@ body header .ulNavHeader .divLogin:hover .verticalMenu{
     display: block;
     align-items: center;
 }
-
 
 /* Header */
 header{
@@ -135,12 +126,13 @@ body section .divImage{
 body section img {
     width: 100%;
     border-radius:15px;
+    box-shadow: 0 0 15px 2px;
 }
 
 /* Product info */
 body section .productInfo{
     width: 38%;
-    padding-left: 10px;
+    padding: 0 10px;
     box-shadow: 0 0 15px 3px;
     border-radius: 20px;
     height: 600px;
@@ -151,13 +143,14 @@ body section .productInfo{
 }
 
 body section .productInfo .pName{
+    text-align: center;
     font-size: 44px;
     color:rgba(18, 18, 18, 1);
     font-weight: 500;
     margin-bottom: 5%;
 }
 
-body section .productInfo .spanPrice, .spanDiscount{
+body section .productInfo .spanPrice, .spanDiscount, .spanDonotPay{
     font-size: 26px;
     color:rgba(18, 18, 18, 0.8);
     font-weight: 400;
@@ -168,7 +161,8 @@ body section .productInfo .spanPrice, .spanDiscount{
 body section .productInfo .spanPrice{
     color:rgba(18, 18, 18, 0.7);
     text-decoration: line-through;
-    margin-right: 10px;
+    margin-right: 25px;
+    font-weight: bold;
 }
 
 body section .productInfo .pFinalPrice{
@@ -186,23 +180,18 @@ body section .productInfo .infoBottom{
 }
 
 body section .productInfo .buttonBuy{
-    width: 100%;
-    margin: auto;
-    height: 60px;
-    background-color: rgba(0, 0, 255, 0.8);
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: -5px;
-    margin-bottom: 2.5%;
-    border:rgb(234, 234, 234) 2px solid;
+ padding: 5px 29px;
+ display: block;
+ margin: auto;
+ background-color: rgb(138, 9, 9);
+ border-radius: 5px;
 }
+
 
 body section .productInfo .buttonBuy p{
     color: white;
     font-size: 33px;
+    margin-bottom: 5px;
 }
 
 body section .productInfo .actionButton{
@@ -220,19 +209,15 @@ hr{
     margin: 5% 2.5% 5% 0;
 }
 
-body section .productInfo .buttonEdit, .buttonDelete{
-    width: 100%;
+body section .productInfo .buttonEdit{
+    width: 180px;
     color: white;
     font-size: 28px;
-    background-color: rgb(255, 0, 0, 0.6);
+    background-color: rgb(255, 165, 0, 0.6);
     border: 0;
     border-radius: 10px;
     cursor: pointer;
-}
-
-body section .productInfo .buttonEdit{
-    background-color: rgb(255, 165, 0, 0.6);
-    cursor: pointer;
+    padding-bottom: 5px ;
 }
 
 body section article .actionButton{
@@ -240,6 +225,8 @@ body section article .actionButton{
 }
 
 body section article .productDescription{
+    box-shadow: 0 0 5px 1px;
+    border-radius: 10px;
     margin: 0 5px 0 0;
     font-size: 22px;
     text-align: center;
