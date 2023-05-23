@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/fa36d49c1a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/styles/edit.css">
+    <link rel="stylesheet" href="/styles/editUser.css">
     <link rel="stylesheet" href="/styles/register.css">
     <link rel="stylesheet" href="/styles/modal.css">   
     <title>Edit User</title>
@@ -16,13 +16,13 @@
 
    
     <div class="divTop">
-        <p>You are editing: <%= user.email%></p>
+        <p>You are editing: <span><%= user.email%></span></p>
     </div>
     <section class="allForm">
       <form action="/users/edit/<%= user.id %>?_method=PUT"
          method="POST" enctype="multipart/form-data"><div class="formContent">
             <img src="/img/logoBlack.png" alt="">
-            <h2>Welcome</h2>
+            <h2>Edit your Profile</h2>
 
             <div class="divForm">
                 <input class="barra" type="text" name="email" placeholder="New email" value="<%=locals.old && old.email ? old.email : '' %>">
@@ -30,6 +30,10 @@
                     <% if (locals.errors && errors.email) {%>
                         <p><%= errors.email.msg%></p>
                         <% } %>
+
+                    <% if (locals.errors && errors.validationUserExist) {%>
+                        <p class="error"><%= errors.validationUserExist.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
+                    <% } %>
                 </div>
             </div>
 
@@ -64,7 +68,7 @@
                 <input type="file" class="inputFile" name="image" id="image">
                 <div class="errorMsg">
                    <% if (locals.errors && errors.image) {%>
-                   <p><%= errors.image.msg%></p>
+                   <p class="error"><%= errors.image.msg%><i class="fa-solid fa-circle-exclamation"></i></p>
                    <% } %>
                 </div>
              </div>

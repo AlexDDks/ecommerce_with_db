@@ -15,8 +15,7 @@
     background-color: rgba(18, 18, 18,0.95);
     position: fixed;
     top: -100vh;
-    left: -25vw;
-    width: 100%;
+    width: 30%;
     height: 157px;
     z-index: 100;
     transition: all 1s;
@@ -78,7 +77,7 @@ form .buttonDelete:hover{
 
 .openModalDelete:checked~.modalDelete{
     position: fixed;
-    top: 40vh;
+    top: 25vh;
 }
 
 .closeModalDelete{

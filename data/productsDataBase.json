@@ -8,14 +8,5 @@
   "description": "Smartphone Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   "image": "smartphone.png",
   "finalPrice": 4850
- },
- {
-  "id": 10,
-  "name": "Laptop de prueba 3.1416",
-  "price": "123312321",
-  "discount": "12312",
-  "msi": "1",
-  "description": "asdasds",
-  "image": "laptop.png"
  }
 ]

@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt'); //We require the module bcrypt to use a method
 const usersFilePath = path.join(__dirname, '../data/userDataBase.json');//Here we specify where the DB is (saving the path in a const)
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));// Because the DB is a JSON, we need to parse it (from JSON to an object), so we need this method that converts JSON into an object. The JSON is obtained from the path defined with the method join, the method readFileSync allow us to read a file (specifying where it is with the path) and includes the option(encoding) "utf-8" that allows to the browser render "stranger" symbols like accents and so on
 let db = require("../database/models");
+const { log } = require("console");
 
 const controller = {
    login: (req,res) => {
@@ -125,40 +126,63 @@ edit: (req, res) => {
 },
  
 update: (req, res) => {
-     //Here we process the information that was sent by post in the form of edit user.
-     const resultValidation = validationResult(req); //The result of the validation is saved in a local variable. To the validationResult we share the request, where all information from the form is arriving    
-     if (resultValidation.errors > 0) { //Errors its an array with one index per every error (input in the form where whe placed a middleware). ResultValidation is an objetc with a propertie called errors, where all errors its an array with one index per every error, so if there are some errors, the array isn't gonna be empty
+     const id = parseInt(req.params.id) //Before, I had had some mistakes when I asigned the id of a product or user, because foran unknown reason, those were assigned as an string, so, to solve the problem, I always convert the strings into integers. The id is obtained from the query string.
+     const user = users.find(element => element.id == id) //The constant user is filled with the information of the user that will be edited. The find() method returns the first element in the array of users(DB) that satisfies the provided testing function (the id) i.e. the variable "element" iterates in each element of the array and returns the first user that match with the id that is required in the URL and saves it into the const "user"
+     //Here we process the information that was sent by post in the form of edit user.     
+     const resultValidation = validationResult(req); //The result of the validation is saved in a local variable. To the validationResult we share the request, where all information from the form is arriving  
+
+     if (resultValidation.errors.length > 0) { //Errors its an array with one index per every error (input in the form where whe placed a middleware). ResultValidation is an objetc with a propertie called errors, where all errors its an array with one index per every error, so if there are some errors, the array isn't gonna be empty
           res.render("editUserView", {errors:resultValidation.mapped(), user, old:req.body})//We render the view again and also all the errors resulted of the validation process. When we mapped(), we transform every index in an literal object with the name of the atribute "name" in every blank, an into their properties there are placed the "msg" as "clave", and the text as value). The variable old, saves all information that the user sent at the first time, in order of place it as a default value in the form if there were some errors
      }
-     else{ //If there are not mistakes in the form like they forgot to fill in a blank 
-          if (req.body.password == req.body.passwordRep) { //We check if the new passwords match             
-          const id = parseInt(req.params.id) //Before I have had some mistakes when I asigned the id of a product or user, because for one reason those were assigned as an string, so for solving the problem, I always convert the strings into integers. The id is obtained from the query string.
-          var idx = users.findIndex(element => element.id == id)//We search for the index of the user that needs to be edited
+     //If there are not mistakes in the form like they forgot to fill in a blank 
+     else{ 
 
-          //Deleting the previous image 
-          const deletePath = path.join(__dirname, '../public/img/users/'+users[idx].image) //We save the path of the image that the user has
-          fs.unlink(deletePath, deleteFileCb)//The fs.unlink() method is used to remove a file or symbolic link from the filesystem
-          function deleteFileCb(error){ //An error will be thrown if the method fails.
-               if (error){
-                    console.log("Error in deleting the last image");
-                    console.log(deletePath);
+          for (let i = 0; i<users.length; i++) {//We iterate in all the users in the DB in order of knowing if the email of the user already exists
+               if (users[i].email == req.body.email && user.email!=req.body.email) {//For each iteration, we verify if the user exists AND if its different to the currently. THE USAR IS ABLE OF USING ITS CURRENTLY EMAIL.
+                   var userExist = true; //Here we have arrive only if the user exist and we asign the value true to a variable in order to use it in the next conditional
+                   res.render("editUserView", {errors:{validationUserExist:{msg:"The user already exist"}}, user, old:req.body})//If the user exists, the operation will be interrupted inmediatly and the error will be shared with the view
+                   break
                }
           }
-          users[idx] = { //We add all the new information to the user that already exist but needs to be edited
-          id, 
-          email: req.body.email,//Here we add the new email
-          password: bcrypt.hashSync(req.body.password,10), //Here we asign/save a hashed password.
-          image: req.file.filename//Here we add the new image
-          }
-          fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
-          let loggedUser= users[idx]
-          req.session.user=loggedUser //We keep the user logged
-          let emailName = loggedUser.email.split('@') //The split() method takes a pattern and divides a String into an ordered list of substrings by searching for the pattern, puts these substrings into an array, and returns the array. In this case we will have an array of two index ["nameOfTheEMail", "gmail.com"], because we have split taking the @ as separator.
-          res.redirect("/users/profile/"+ emailName[0])//Here we send a parametrized route, based in the username without the extension of the email
-          }
-          else{
-               res.render("register", {errors:{validationPassword:{msg:"The password must coincide"}}}) //If the password that the user wants to use doesn't coincides, the errors are sended
-          }
+
+          if (userExist != true) { 
+                    if (req.body.password == req.body.passwordRep) { //We check if the new passwords match             
+                         const id = parseInt(req.params.id) //Before I have had some mistakes when I asigned the id of a product or user, because for one reason those were assigned as an string, so for solving the problem, I always convert the strings into integers. The id is obtained from the query string.
+                         var idx = users.findIndex(element => element.id == id)//We search for the index of the user that needs to be edited
+               
+                         //Deleting the previous image 
+                         const deletePath = path.join(__dirname, '../public/img/users/'+users[idx].image) //We save the path of the image that the user has
+                         fs.unlink(deletePath, deleteFileCb)//The fs.unlink() method is used to remove a file or symbolic link from the filesystem
+                         function deleteFileCb(error){ //An error will be thrown if the method fails.
+                             
+                              if (error){
+                                   console.log("Error in deleting the last image");
+                                   console.log(deletePath);
+                              }
+
+                         }
+                         users[idx] = { //We add all the new information to the user that already exist but needs to be edited
+                         id, 
+                         email: req.body.email,//Here we add the new email
+                         password: bcrypt.hashSync(req.body.password,10), //Here we asign/save a hashed password.
+                         image: req.file.filename//Here we add the new image
+                         }
+                         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
+                         let loggedUser= users[idx]
+                         req.session.user=loggedUser //We keep the user logged
+                         let emailName = loggedUser.email.split('@') //The split() method takes a pattern and divides a String into an ordered list of substrings by searching for the pattern, puts these substrings into an array, and returns the array. In this case we will have an array of two index ["nameOfTheEMail", "gmail.com"], because we have split taking the @ as separator.
+                         res.redirect("/users/profile/"+ emailName[0])//Here we send a parametrized route, based in the username without the extension of the email
+                         }
+
+                         else{
+                              res.render("register", {errors:{validationPassword:{msg:"The password must coincide"}}}) //If the password that the user wants to use doesn't coincides, the errors are sended
+                         }
+               }
+
+               //The user wants to use a mail account that is used and is not the same that he/she had
+               else{
+                    res.render("editUserView", {errors:{validationUserExist:{msg:"The user already exist"}}, user, old:req.body})//If the user exists, the operation will be interrupted
+               }          
      }
 },
  
