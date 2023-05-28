@@ -138,6 +138,7 @@ update: (req, res) => {
      else{ 
 
           for (let i = 0; i<users.length; i++) {//We iterate in all the users in the DB in order of knowing if the email of the user already exists
+               
                if (users[i].email == req.body.email && user.email!=req.body.email) {//For each iteration, we verify if the user exists AND if its different to the currently. THE USAR IS ABLE OF USING ITS CURRENTLY EMAIL.
                    var userExist = true; //Here we have arrive only if the user exist and we asign the value true to a variable in order to use it in the next conditional
                    res.render("editUserView", {errors:{validationUserExist:{msg:"The user already exist"}}, user, old:req.body})//If the user exists, the operation will be interrupted inmediatly and the error will be shared with the view
@@ -145,27 +146,38 @@ update: (req, res) => {
                }
           }
 
-          if (userExist != true) { 
+          if (userExist != true) { //If the email is available the conditional runs
+
                     if (req.body.password == req.body.passwordRep) { //We check if the new passwords match             
                          const id = parseInt(req.params.id) //Before I have had some mistakes when I asigned the id of a product or user, because for one reason those were assigned as an string, so for solving the problem, I always convert the strings into integers. The id is obtained from the query string.
                          var idx = users.findIndex(element => element.id == id)//We search for the index of the user that needs to be edited
-               
-                         //Deleting the previous image 
-                         const deletePath = path.join(__dirname, '../public/img/users/'+users[idx].image) //We save the path of the image that the user has
-                         fs.unlink(deletePath, deleteFileCb)//The fs.unlink() method is used to remove a file or symbolic link from the filesystem
-                         function deleteFileCb(error){ //An error will be thrown if the method fails.
-                             
-                              if (error){
-                                   console.log("Error in deleting the last image");
-                                   console.log(deletePath);
-                              }
 
+                         if (req.file) {
+                              //Deleting the previous image 
+                              const deletePath = path.join(__dirname, '../public/img/users/'+users[idx].image) //We save the path of the image that the user has
+                              fs.unlink(deletePath, deleteFileCb)//The fs.unlink() method is used to remove a file or symbolic link from the filesystem
+                              function deleteFileCb(error){ //An error will be thrown if the method fails.
+
+                                   if (error){
+                                        console.log("Error in deleting the last image");
+                                        console.log(deletePath);
+                                   }
+                              }
+                              users[idx] = { //We add all the new information to the user that already exist but needs to be edited
+                                   id, 
+                                   email: req.body.email,//Here we add the new email
+                                   password: bcrypt.hashSync(req.body.password,10), //Here we asign/save a hashed password.
+                                   image: req.file.filename//Here we add the new image
+                                   }
                          }
-                         users[idx] = { //We add all the new information to the user that already exist but needs to be edited
-                         id, 
-                         email: req.body.email,//Here we add the new email
-                         password: bcrypt.hashSync(req.body.password,10), //Here we asign/save a hashed password.
-                         image: req.file.filename//Here we add the new image
+
+                         else{
+                              users[idx] = { //We add all the new information to the user that already exist but needs to be edited
+                                   id, 
+                                   email: req.body.email,//Here we add the new email
+                                   password: bcrypt.hashSync(req.body.password,10), //Here we asign/save a hashed password.
+                                   image: user.image//Here we add the new image
+                                   }
                          }
                          fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
                          let loggedUser= users[idx]

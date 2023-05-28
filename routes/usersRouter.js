@@ -50,20 +50,20 @@ const validateEditForm = [ //The same as above
   body("email").notEmpty().withMessage("You must fill the blank").bail().isEmail().withMessage("It needs to be email"),
   body("password").notEmpty().withMessage("You must write your password").bail().isLength({ min: 8, max:8 }).withMessage("Must be 8 characteres"),
   body("passwordRep").notEmpty().withMessage("You must write again your password").bail().isLength({ min: 8, max:8 }).withMessage("Must be 8 characteres"),
-  body("image").custom((value, {req}) => { 
-      let file =req.file;
-      if(!file){
-        throw new Error ("You must uppload an image");
-      }
-      else{
-        let acceptedExtensions = [".jpg", ".png", ".gif", ".jpeg"];
-        let fileExtension = path.extname(file.originalname);
-        if(!acceptedExtensions.includes(fileExtension)){ 
-          throw new Error ("The image extension accepted are: jpg, png, .jpeg and gif ");
-        }
-      }   
-      return true; //In documentation I read that we must send a true
-    })
+  // body("image").custom((value, {req}) => { 
+  //     let file =req.file;
+  //     if(!file){
+  //       throw new Error ("You must uppload an image");
+  //     }
+  //     else{
+  //       let acceptedExtensions = [".jpg", ".png", ".gif", ".jpeg"];
+  //       let fileExtension = path.extname(file.originalname);
+  //       if(!acceptedExtensions.includes(fileExtension)){ 
+  //         throw new Error ("The image extension accepted are: jpg, png, .jpeg and gif ");
+  //       }
+  //     }   
+  //     return true; //In documentation I read that we must send a true
+  //   })
 ]; //The validations must live in an array (one element for each name of the form that we want to validate)
 
 

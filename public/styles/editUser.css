@@ -125,14 +125,6 @@ body header .ulNavHeader .divLogin:hover .verticalMenu{
     font-weight: bold;
 }
 
-form input{
-    height: 45px;
-    border-radius: 5px;
-    text-indent: 5px;
-    font-size: 18px;
-    border: 1px solid rgba(18, 18, 18,0.9);
-}
-
 form label{
     margin-bottom: 15px;
 }

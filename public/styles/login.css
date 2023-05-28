@@ -186,8 +186,10 @@ body form .divForm .errorMsg .fa-circle-exclamation{
 
 /* Footer */
 footer{
-    margin-top: 60px;
+    width: 100vw;
     background-color: rgba(18, 18, 18, 0.9);
+    position: absolute;
+    bottom: 0;
 }
 
 footer nav {
