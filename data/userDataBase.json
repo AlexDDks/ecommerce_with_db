@@ -4,5 +4,11 @@
   "email": "prueba@gmail.com",
   "password": "$2b$10$FWPIRuQtWrwytgmmaIjco.0px3/PlnO9iNaIqh7O62XwP7xpOIVnO",
   "image": "image-1676693269127.jpg"
+ },
+ {
+  "id": 2,
+  "email": "magarciaa92@gmail.com",
+  "password": "$2b$10$g1rRbM0r7t2sEVeVRCQdpOUbTC/5ca4hdJxB06H6RJTpBUClI2/UG",
+  "image": "image-1684881223014.png"
  }
 ]

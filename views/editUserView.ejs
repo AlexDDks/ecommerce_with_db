@@ -25,7 +25,7 @@
             <h2>Edit your Profile</h2>
 
             <div class="divForm">
-                <input class="barra" type="text" name="email" placeholder="New email" value="<%=locals.old && old.email ? old.email : '' %>">
+                <input class="barra" type="text" name="email" placeholder="<%= user.email%>" value="<%=locals.old && old.email ? old.email : '' %>">
                 <div class="errorMsg">
                     <% if (locals.errors && errors.email) {%>
                         <p><%= errors.email.msg%></p>
