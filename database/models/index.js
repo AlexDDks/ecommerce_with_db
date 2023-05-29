@@ -42,4 +42,5 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-module.exports = db; //Esta variable es la que se importa en los controladores para conectar con la DB
+sequelize.sync() // This line, synchronize the db with controllers
+module.exports = db; // This variable is shared to the controllers

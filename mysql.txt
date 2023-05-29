@@ -2,3 +2,5 @@ usuario: root
 contraseña: 123456
 
 windows service name: MySQL82
+
+we created a DB in my sql, and then sincronysm with sequelize
