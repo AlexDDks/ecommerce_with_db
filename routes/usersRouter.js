@@ -4,7 +4,7 @@ const multer = require('multer'); //We use multer library in order of being able
 const { body } = require('express-validator');//We just use the body function, not all the library, so with destructuring assigment we are able to instance the function body in the constant body.
 const path = require('path');// We require from Node the native module path to use it to place the image that is gonna be uploaded in the forms.
 
-const usersController=require("../controllers/usersController") //We required the module that we have already export in the main controller
+const usersController=require("../controllers/usersControllerDB") //We required the module that we have already export in the main controller
 
 /*Multer
 All this code is based in the documentation: multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.*/
@@ -74,7 +74,6 @@ router.get("/signup",usersController.register)
 router.get("/profile/:id?",usersController.profile) //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/user/profile/<%= user.id %>">
 router.get("/edit/:id", usersController.edit)//The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/useredit/<%= user.id %>">
 router.get("/logout", usersController.logout)
-router.get("/users", usersController.users)
 
 
 //POST

@@ -244,6 +244,9 @@ body section .productBox:hover i{
 
 /* footer */
 footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
     margin-top: 80px;
     background-color: rgba(18, 18, 18, 0.9);
 }

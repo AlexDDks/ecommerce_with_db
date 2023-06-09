@@ -42,5 +42,4 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-sequelize.sync() // This line, synchronize the db with controllers
 module.exports = db; // This variable is shared to the controllers

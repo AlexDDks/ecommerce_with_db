@@ -1,0 +1,7 @@
+body section div .map{
+    width: 100%;
+    margin-top: 10px;
+    height: 35vh;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0px;
+}

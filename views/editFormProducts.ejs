@@ -15,14 +15,14 @@
 
    
     <div class="divTop">
-        <p>You are editing: <%= product.name%></p>
+        <p>You are editing: <%= product.productName%></p>
     </div>
     <section class="allForm">
       <form action="/products/edit/<%= product.id %>?_method=PUT"
          method="POST">
          <div class="divInput">
              <label for="name">Name of the product:</label>
-             <input type="text" name="name" id="name" placeholder="<%=product.name%>" value="<%=locals.old && old.name ? old.name : '' %>">
+             <input type="text" name="productName" id="name" placeholder="<%=product.productName%>" value="<%=locals.old && old.productName ? old.productName : '' %>">
              <div class="errorMsg">
                 <% if (locals.errors && errors.name) {%>
                 <p><%= errors.name.msg%> <i class="fa-solid fa-circle-exclamation"></i></p>
@@ -52,7 +52,7 @@
 
          <div class="divInput">
             <label for="msi">MIF of the product:</label>
-            <input type="number" name="msi" id="msi" placeholder="<%=product.msi%>" value="<%=locals.old && old.msi ? old.msi : '' %>">
+            <input type="number" name="msi" id="msi" placeholder="<%=product.mif%>" value="<%=locals.old && old.mif ? old.mif : '' %>">
             <div class="errorMsg">
                 <% if (locals.errors && errors.msi) {%>
                 <p><%= errors.msi.msg%><i class="fa-solid fa-circle-exclamation"></i></p>

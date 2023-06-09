@@ -5,7 +5,7 @@ const multer = require('multer'); //We required module multer in order to use it
 const {body} = require('express-validator'); //We just use the body function, not all the library, so with destructuring assigment we are able to instance the function body in the constant body.
 
 // Requires
-const productsController=require("../controllers/productsController") //We required the module that we have already export in the controller of products.
+const productControllerDB=require("../controllers/productControllerDB") //We required the module that we have already export in the controller of products.
 
 /*Multer
 //All this code is based in the documentation: multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.*/
@@ -25,7 +25,7 @@ const upload = multer({ storage }) //Here we save all properties of storage in t
 /*Validations
 We use Express validator in order of validate (you will forgive the repetition) all the inputs in the forms, in this case the edit and create ones. The sintax is based on documentation. The most of the validation are centered avoiding the null values in the blanks (not empty), so in the object resultsValidation of express validator it's gonna appear all the results of the fields that have some mistakes, that information is gonna be used in the controller and views. The atribute bail allow us to include more that one validation.*/
 const validateEditForm = [
-  body("name").notEmpty().withMessage("You must fill the name"),
+  body("productName").notEmpty().withMessage("You must fill the name"),
   body("price").notEmpty().withMessage("You must fill the price").bail()
   .isNumeric().withMessage("It needs to be a number"),
   body("discount").notEmpty().withMessage("You must fill the discount").bail()
@@ -36,7 +36,7 @@ const validateEditForm = [
 ]; //The validations must live in an array (one element for each name of the form that we want to validate)
 
 const validateCreateForm = [
-  body("name").notEmpty().withMessage("You must fill the name"),
+  body("productName").notEmpty().withMessage("You must fill the name"),
   body("price").notEmpty().withMessage("You must fill the price").bail()
   .isNumeric().withMessage("It needs to be a number"),
   body("discount").notEmpty().withMessage("You must fill the discount").bail()
@@ -57,26 +57,25 @@ const validateCreateForm = [
         throw new Error ("The image extension accepted are: jpg, png, .jpeg and gif "); //Error
       }
     }
-
     return true; //In documentation I read that we must send a true
-  })
+  }),
 ];
 
 // CRUD
 // Get
-router.get("/",productsController.products) 
-router.get("/create",productsController.createForm) 
-router.get("/shoppingcar",productsController.shoppingCar)
-router.get("/detail/:id",productsController.detail) //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/products/detail/<%= product.id %>">
-router.get("/edit/:id",productsController.editForm) //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/products/detail/<%= product.id %>">
+router.get("/",productControllerDB.productsList) 
+router.get("/create",productControllerDB.createForm) 
+router.get("/shoppingcar",productControllerDB.shoppingCar)
+router.get("/detail/:id",productControllerDB.detail) //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/products/detail/<%= product.id %>">
+router.get("/edit/:id",productControllerDB.editForm) //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/products/detail/<%= product.id %>">
 
 // Post
-router.post('/create', upload.single('image'), validateCreateForm, productsController.createStore); //This route sends us to the controller that made all the magi to upload an image and save it in the DB. upload.single('image'), means that only one image (which was uploaded in the fild name="image") is gonna be uploaded
+router.post('/create', upload.single('image'), validateCreateForm, productControllerDB.createStore); //This route sends us to the controller that made all the magi to upload an image and save it in the DB. upload.single('image'), means that only one image (which was uploaded in the fild name="image") is gonna be uploaded
 
 // Put
-router.put('/edit/:id', validateEditForm, productsController.editUpdate); //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/products/edit/<%= product.id %>">
+router.put('/edit/:id', validateEditForm, productControllerDB.editUpdate); //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/products/edit/<%= product.id %>">
 
 // Delete
-router.delete('/delete/:id', productsController.delete); //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/products/delete/<%= product.id %>">
+router.delete('/delete/:id', productControllerDB.delete); //The parameter id is obtained when the user clicks on a product, and because the product itself has an id in the database, we can us it in the view with a link label, somenthing like: <a href="/products/delete/<%= product.id %>">
 
 module.exports=router //We must export the variable router in order of being required in the entry point paths

@@ -1,7 +1,7 @@
 //Defining model
 module.exports = (sequelize, dataTypes) => {
 
-    let alias= "Users"; //Normally, the name of the model/tables in SQL goes in plural. The name of the alias, is gonna be the first atribute in the definition of model (at the end), and in convention, goes in PLURAL.
+    let alias= "User"; //Normally, the name of the model/tables in SQL goes in plural. The name of the alias, is gonna be the first atribute in the definition of model (at the end), and in convention, goes in PLURAL.
 
     let cols={
         //The name of the objetc, in this case "id" is gonna be the name of the column.  id is the Colum #1
@@ -26,6 +26,11 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
 
+        image:{
+            type: dataTypes.STRING,
+            allowNull: false
+        },
+        
         createdAt:{ //Date of creation
             type: dataTypes.DATE,
             field:"created_at", // Name of the column
@@ -47,8 +52,7 @@ module.exports = (sequelize, dataTypes) => {
     };
     
     let config={ //Depende de cómo esté la DB, pero normalmente lleva estos elementos
-        paranoid: true, //This config, doesn't delete a register physically, just logically
-        tableName: "Users", //Nombre de la tabla
+        tableName: "User", //Nombre de la tabla
         timeStamps: false //Sino tenemos las columnas de create y update en la tabla, esta línea es fundamental
     }
 

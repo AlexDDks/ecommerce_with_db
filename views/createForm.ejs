@@ -20,7 +20,7 @@
         <form action="/products/create" method="post" enctype="multipart/form-data">
           <div class="divInput">
              <label for="name">Name of the product:</label>
-             <input type="text" class="input" name="name" id="name" placeholder="Name" value="<%=locals.old && old.name ? old.name : '' %>">
+             <input type="text" class="input" name="productName" id="name" placeholder="Name" value="<%=locals.old && old.name ? old.name : '' %>">
                <div class="errorMsg">
                 <!-- Anything that we send to the views came in an object called LOCALS-->
                 <% if (locals.errors && errors.name) {%> <!--If the errors exist, also the error for this field, the error is rendered-->

@@ -137,7 +137,7 @@ body section .productInfo{
     border-radius: 20px;
     height: 600px;
     position: absolute;
-    top: 50%;
+    top: 40vh;
     right: 0;
     transform: translate(0, -50%);
 }

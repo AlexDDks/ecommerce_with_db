@@ -5,13 +5,6 @@
     font-family:'Segoe UI';
 }
 
-body{
-    background-color: rgb(234, 234, 234);
-    max-width: 2200px;
-    min-width: 355px;
-    height: 100vh;
-}
-
 li{
     list-style: none;
 }
@@ -26,15 +19,16 @@ body{
     min-width: 355px;
 }
 
-/* Header */
 header{
     width:100%;
     background-color: rgb(18, 18, 18);
-    height: 60px;
+     height: 60px;
     position:fixed;
     z-index: 10;
-    top: 0;
+    top: 0; 
 }
+
+
 
 header .navHeader{
     width: 100%;
@@ -79,6 +73,7 @@ Body .navHide{
 }
 
 
+
 /* Vertical menu login */
 body header .ulNavHeader .verticalMenu{
     display: none;
@@ -115,7 +110,7 @@ body header .ulNavHeader .divLogin:hover .verticalMenu{
 
 /* contact */
 body section{
-    margin: 105px auto 0 auto;
+    margin: 100px auto 0 auto;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -161,23 +156,13 @@ body section .divIcons i{
 body section .divIcons i:hover{
     transform: scale(1.1);
 }
-
-
-/* Footer */
+/* footer */
 footer{
-    margin-top: 60px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin-top: 80px;
     background-color: rgba(18, 18, 18, 0.9);
-}
-
-body .finalLogo{
-    width:20%;
-    margin-left: 5%;
-    margin-top: 60px;
-}
-
-body .finalLogo img{
-    width: 300px;
-    opacity: 0.9;
 }
 
 footer nav {
@@ -207,6 +192,7 @@ footer .navFooter ul li a{
 footer .navFooter ul li a:hover{
     color: rgba(255, 255, 255, 0.9);
 }
+
 
 @media (max-width: 1023px) {
     /* Header */

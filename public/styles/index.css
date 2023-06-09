@@ -182,6 +182,11 @@ body .sectionBottomSlider .swiper .swiper-button-next:hover, body .sectionBottom
     opacity: 1;
 }
 
+.swiper .swiper-pagination-bullet{
+ width: 13px;
+ height: 13px;
+}
+
 .swiper .swiper-pagination-bullet-active{
     background-color: white;
 }
@@ -212,9 +217,33 @@ section .ulProducts li img:hover{
     box-shadow: 0 0 8px 3px rgba(47, 47, 47, 0.6);
 }
 
+body .sectionAddress{
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;  
+    justify-content: space-between;
+}
+
+body section .divAddress, .divDirectLine{
+    width: 47.5%;
+    font-size: 18px;
+    color:rgba(18, 18, 18, 0.8);
+    text-align: center;
+}
+
+body section .divAddress .fa-location-dot{
+    color: red;
+    font-size: 20px;
+}
+
+.divMT{
+    margin: 10px 0 5px 0;
+}
+
 .h3FollowUs{
     color:rgba(18, 18, 18, 0.9);
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 27px;
     font-weight: 600;
     text-align: center;
@@ -262,33 +291,19 @@ body div .ulSocialMedia .fa-youtube:hover{
     color:rgb(255, 0, 0);
 }
 
-body .sectionAddress{
-    width: 80%;
-    margin: auto;
-    margin-top: 40px;
-    display: flex;  
-    justify-content: space-between;
-}
-
-body section .divAddress, .divDirectLine{
-    width: 47.5%;
-    font-size: 18px;
-    color:rgba(18, 18, 18, 0.8);
-}
-
-body section .divAddress .fa-location-dot{
-    color: red;
-    font-size: 20px;
-}
-
 body section .pAddress, .pDirectLine{
     font-size: 24px;
     font-weight: 600;
 }
 
+.pDirectLine{
+    margin-bottom: 15px;
+}
+
 body section .divDirectLine .pNum{
     color:  rgb(8, 105, 250);
     font-weight:750;
+    padding: 5px 0;
 }
 
 body section .divDirectLine .fa-whatsapp{

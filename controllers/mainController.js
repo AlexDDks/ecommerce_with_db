@@ -19,6 +19,10 @@ const controller = {
 
    pruebas:(req,res) => {//This one just render a view
       res.render("pruebas")
+   },
+
+   map:(req,res) => {//This one just render a view
+      res.render("map")
    }}
 
 module.exports=controller

@@ -2,4 +2,3 @@
 2. Investigar el fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '))
 3. Poner anotaciones a las vistas, de las más básicas a las más cabronas
 4. Crear y gestionar la base de datos mysql
-5. añadir apis como maps a la página
